@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { StarsBackground } from "@/components/animate-ui/components/backgrounds/stars";
+import ScrollReveal from "@/components/ScrollReveal";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -71,13 +72,21 @@ export default function Home() {
         </div>
 
         <div ref={aboutRef} className="about">
-          <h1>
+          <ScrollReveal
+            baseOpacity={0}
+            enableBlur={true}
+            blurStrength={10}
+            containerClassName="about-reveal"
+            textClassName="about-text"
+            start="top bottom-=230%"
+            wordAnimationEnd="top bottom-=280%"
+          >
             At Macenza, we’re driven by ideas that make a difference. We
             specialize in creating smart, impactful solutions that help
             businesses move faster, work smarter, and achieve more. Our team
             blends creativity with technology to turn challenges into
             opportunities and visions into reality.
-          </h1>
+          </ScrollReveal>
         </div>
 
         <div ref={windowRef} className="window-container">
