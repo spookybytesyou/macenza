@@ -97,7 +97,8 @@ section {
 
 .sky-container {
   height: 350svh;
-  pointer-events: auto; /* Allow background to capture mouse */
+  pointer-events: auto;
+  /* Allow background to capture mouse */
 }
 
 .about {
@@ -137,6 +138,8 @@ section {
 }
 
 .hero-header .col:nth-child(2) {
+  height: 100%;
+  justify-content: flex-end;
   align-items: flex-end;
   text-align: right;
 }
@@ -265,9 +268,11 @@ html.lenis {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
   }
