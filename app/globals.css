@@ -135,7 +135,7 @@ section {
 
 .hero-header {
   height: 100svh;
-  padding: 2rem;
+  padding: 8rem;
   display: flex;
   transform-style: preserve-3d;
 }
