@@ -11,6 +11,10 @@ import LogoLoop from "@/components/LogoLoop";
 
 gsap.registerPlugin(ScrollTrigger);
 
+ScrollTrigger.config({
+  ignoreMobileResize: true,
+});
+
 const LOGOS = [
   { src: '/logos/airbnb.svg', alt: 'Airbnb' },
   { src: '/logos/chanel.svg', alt: 'Chanel' },
