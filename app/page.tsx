@@ -1,65 +1,135 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import Lenis from "lenis";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+  const container = useRef<HTMLDivElement>(null);
+  const skyContainerRef = useRef<HTMLDivElement>(null);
+  const windowContainerRef = useRef<HTMLDivElement>(null);
+  const heroHeaderRef = useRef<HTMLDivElement>(null);
+  const heroCopyRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    // Lenis smooth scrolling
+    const lenis = new Lenis();
+    lenis.on("scroll", ScrollTrigger.update);
+    
+    const raf = (time: number) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+    requestAnimationFrame(raf);
+
+    // GSAP Animation
+    const skyContainer = skyContainerRef.current;
+    const windowContainer = windowContainerRef.current;
+    const heroHeader = heroHeaderRef.current;
+    const heroCopy = heroCopyRef.current;
+
+    if (!skyContainer || !windowContainer || !heroHeader || !heroCopy) return;
+
+    const skyContainerHeight = skyContainer.offsetHeight;
+    const viewportHeight = window.innerHeight;
+    const skyMoveDistance = skyContainerHeight - viewportHeight;
+
+    gsap.set(heroCopy, { yPercent: 100 });
+
+    ScrollTrigger.create({
+      trigger: ".hero",
+      start: "top top",
+      end: `+=${window.innerHeight * 3}px`,
+      pin: true,
+      pinSpacing: true,
+      scrub: 1,
+      onUpdate: (self) => {
+        const progress = self.progress;
+
+        let windowScale;
+        if (progress <= 0.5) {
+          windowScale = 1 + (progress / 0.5) * 3;
+        } else {
+          windowScale = 4;
+        }
+        gsap.set(windowContainer, { scale: windowScale });
+        gsap.set(heroHeader, { scale: windowScale, z: progress * 500 });
+
+        gsap.set(skyContainer, {
+          y: -progress * skyMoveDistance,
+        });
+
+        let heroCopyY;
+        if (progress <= 0.66) {
+          heroCopyY = 100;
+        } else if (progress >= 1) {
+          heroCopyY = 0;
+        } else {
+          heroCopyY = 100 * (1 - (progress - 0.66) / 0.34);
+        }
+        gsap.set(heroCopy, { yPercent: heroCopyY });
+      },
+    });
+
+    return () => {
+      lenis.destroy();
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, { scope: container });
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div ref={container} className="main-wrapper">
+      <section className="hero">
+        <div ref={skyContainerRef} className="sky-container">
+          <img src="/space.webp" alt="Space Background" />
+        </div>
+
+        <div ref={heroCopyRef} className="about">
+          <h1>
+            At Macenza, we’re driven by ideas that make a difference. We
+            specialize in creating smart, impactful solutions that help
+            businesses move faster, work smarter, and achieve more. Our team
+            blends creativity with technology to turn challenges into
+            opportunities and visions into reality.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div ref={windowContainerRef} className="window-container">
+          <img src="/window.webp" alt="Window" />
         </div>
-      </main>
+
+        <div ref={heroHeaderRef} className="hero-header">
+          <div className="col">
+            <h1>
+              An aperture <br />
+              into stillness
+            </h1>
+            <p>
+              A constructed aperture into stillness. Here, the world outside
+              dissolves into a tranquil vista, inviting moments of reflection.
+              Built with care and attention to detail, this space is designed to
+              bring a sense of calm and quiet contemplation to your everyday.
+            </p>
+          </div>
+
+          <div className="col">
+            <p>Observation Mode</p>
+            <h1>
+              Where distance <br />
+              collapses into presence.
+            </h1>
+          </div>
+        </div>
+      </section>
+
+      <section className="placeholder">
+        <h1>Placeholder text.</h1>
+      </section>
     </div>
   );
 }
