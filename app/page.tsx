@@ -67,7 +67,6 @@ export default function Home() {
     });
 
     return () => {
-      lenis.destroy();
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, { scope: container });
