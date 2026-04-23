@@ -92,10 +92,12 @@ section {
   left: 0;
   width: 100%;
   will-change: transform;
+  pointer-events: none;
 }
 
 .sky-container {
   height: 350svh;
+  pointer-events: auto; /* Allow background to capture mouse */
 }
 
 .about {

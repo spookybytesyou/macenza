@@ -75,7 +75,7 @@ export default function Home() {
     <div ref={container} className="main-wrapper">
       <section className="hero">
         <div ref={skyContainerRef} className="sky-container">
-          <StarsBackground />
+          <StarsBackground pointerEvents={true} />
         </div>
 
         <div ref={heroCopyRef} className="about">
