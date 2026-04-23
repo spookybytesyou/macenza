@@ -11,25 +11,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const container = useRef<HTMLDivElement>(null);
-  const skyContainerRef = useRef<HTMLDivElement>(null);
-  const windowContainerRef = useRef<HTMLDivElement>(null);
+  const skyRef = useRef<HTMLDivElement>(null);
+  const windowRef = useRef<HTMLDivElement>(null);
   const heroHeaderRef = useRef<HTMLDivElement>(null);
-  const heroCopyRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    // GSAP Animation
-    const skyContainer = skyContainerRef.current;
-    const windowContainer = windowContainerRef.current;
-    const heroHeader = heroHeaderRef.current;
-    const heroCopy = heroCopyRef.current;
+    if (!skyRef.current || !windowRef.current || !aboutRef.current || !heroHeaderRef.current) return;
 
-    if (!skyContainer || !windowContainer || !heroHeader || !heroCopy) return;
-
-    const skyContainerHeight = skyContainer.offsetHeight;
+    const skyContainerHeight = skyRef.current.offsetHeight;
     const viewportHeight = window.innerHeight;
     const skyMoveDistance = skyContainerHeight - viewportHeight;
 
-    gsap.set(heroCopy, { yPercent: 100 });
+    gsap.set(aboutRef.current, { yPercent: 100 });
 
     ScrollTrigger.create({
       trigger: ".hero",
@@ -42,43 +36,41 @@ export default function Home() {
         const progress = self.progress;
 
         let windowScale;
-        if (progress <= 0.5) {
-          windowScale = 1 + (progress / 0.5) * 3;
+        if (progress <= 0.6) {
+          windowScale = 1 + (progress / 0.6) * 5;
         } else {
-          windowScale = 4;
+          windowScale = 6 + Math.pow((progress - 0.6) / 0.4, 3) * 60;
         }
-        gsap.set(windowContainer, { scale: windowScale });
-        gsap.set(heroHeader, { scale: windowScale, z: progress * 500 });
 
-        gsap.set(skyContainer, {
+        gsap.set(windowRef.current, { scale: windowScale });
+        gsap.set(heroHeaderRef.current, { scale: windowScale, z: progress * 500 });
+
+        gsap.set(skyRef.current, {
           y: -progress * skyMoveDistance,
         });
 
-        let heroCopyY;
+        let aboutY;
         if (progress <= 0.66) {
-          heroCopyY = 100;
+          aboutY = 100;
         } else if (progress >= 1) {
-          heroCopyY = 0;
+          aboutY = 0;
         } else {
-          heroCopyY = 100 * (1 - (progress - 0.66) / 0.34);
+          aboutY = 100 * (1 - (progress - 0.66) / 0.34);
         }
-        gsap.set(heroCopy, { yPercent: heroCopyY });
+        gsap.set(aboutRef.current, { yPercent: aboutY });
       },
     });
 
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
   }, { scope: container });
 
   return (
     <div ref={container} className="main-wrapper">
       <section className="hero">
-        <div ref={skyContainerRef} className="sky-container">
+        <div ref={skyRef} className="sky-container">
           <StarsBackground pointerEvents={true} />
         </div>
 
-        <div ref={heroCopyRef} className="about">
+        <div ref={aboutRef} className="about">
           <h1>
             At Macenza, we’re driven by ideas that make a difference. We
             specialize in creating smart, impactful solutions that help
@@ -88,7 +80,7 @@ export default function Home() {
           </h1>
         </div>
 
-        <div ref={windowContainerRef} className="window-container">
+        <div ref={windowRef} className="window-container">
           <img src="/window.webp" alt="Window" />
         </div>
 
@@ -100,7 +92,6 @@ export default function Home() {
           </div>
 
           <div className="col">
-            <p>Observation Mode</p>
             <h1>
               Ideas Into <br />
               Reality
