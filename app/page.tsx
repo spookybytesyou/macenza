@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Lenis from "lenis";
+import { StarsBackground } from "@/components/animate-ui/components/backgrounds/stars";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -86,7 +87,7 @@ export default function Home() {
     <div ref={container} className="main-wrapper">
       <section className="hero">
         <div ref={skyContainerRef} className="sky-container">
-          <img src="/space.webp" alt="Space Background" />
+          <StarsBackground />
         </div>
 
         <div ref={heroCopyRef} className="about">
