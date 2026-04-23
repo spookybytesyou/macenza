@@ -95,16 +95,15 @@ export default function Home() {
         <div ref={heroHeaderRef} className="hero-header">
           <div className="col">
             <h1>
-              An aperture <br />
-              into stillness
+              Build What Matters
             </h1>
           </div>
 
           <div className="col">
             <p>Observation Mode</p>
             <h1>
-              Where distance <br />
-              Becomes a presence.
+              Ideas Into <br />
+              Reality
             </h1>
           </div>
         </div>
