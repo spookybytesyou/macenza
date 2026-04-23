@@ -7,8 +7,18 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { StarsBackground } from "@/components/animate-ui/components/backgrounds/stars";
 import ScrollReveal from "@/components/ScrollReveal";
+import LogoLoop from "@/components/LogoLoop";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const LOGOS = [
+  { src: '/logos/airbnb.svg', alt: 'Airbnb' },
+  { src: '/logos/chanel.svg', alt: 'Chanel' },
+  { src: '/logos/ibm.svg', alt: 'IBM' },
+  { src: '/logos/lenovo.svg', alt: 'Lenovo' },
+  { src: '/logos/puma.svg', alt: 'Puma' },
+  { src: '/logos/suzuki.svg', alt: 'Suzuki' },
+];
 
 export default function Home() {
   const container = useRef<HTMLDivElement>(null);
@@ -72,21 +82,33 @@ export default function Home() {
         </div>
 
         <div ref={aboutRef} className="about">
-          <ScrollReveal
-            baseOpacity={0}
-            enableBlur={true}
-            blurStrength={10}
-            containerClassName="about-reveal"
-            textClassName="about-text"
-            start="top bottom-=230%"
-            wordAnimationEnd="top bottom-=280%"
-          >
-            At Macenza, we’re driven by ideas that make a difference. We
-            specialize in creating smart, impactful solutions that help
-            businesses move faster, work smarter, and achieve more. Our team
-            blends creativity with technology to turn challenges into
-            opportunities and visions into reality.
-          </ScrollReveal>
+          <div className="about-content">
+            <ScrollReveal
+              baseOpacity={0}
+              enableBlur={true}
+              blurStrength={10}
+              containerClassName="about-reveal"
+              textClassName="about-text"
+              start="top bottom-=230%"
+              wordAnimationEnd="top bottom-=280%"
+            >
+              At Macenza, we’re driven by ideas that make a difference. We
+              specialize in creating smart, impactful solutions that help
+              businesses move faster, work smarter, and achieve more. Our team
+              blends creativity with technology to turn challenges into
+              opportunities and visions into reality.
+            </ScrollReveal>
+
+            <LogoLoop
+              logos={LOGOS}
+              speed={40}
+              gap={100}
+              fadeOut={true}
+              fadeOutColor="var(--dark)"
+              logoHeight={40}
+              scaleOnHover={true}
+            />
+          </div>
         </div>
 
         <div ref={windowRef} className="window-container">
