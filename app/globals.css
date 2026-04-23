@@ -178,7 +178,7 @@ section {
 
   .hero-header {
     flex-direction: column;
-    padding: 2rem 1.5rem;
+    padding: 3rem 1.5rem 8rem;
     justify-content: space-between;
   }
 

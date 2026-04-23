@@ -122,7 +122,8 @@ export default function Home() {
         <div ref={heroHeaderRef} className="hero-header">
           <div className="col">
             <h1>
-              Build What Matters
+              Build What <br />
+              Matters
             </h1>
           </div>
 
