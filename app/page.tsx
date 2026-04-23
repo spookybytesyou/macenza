@@ -20,7 +20,7 @@ export default function Home() {
     // Lenis smooth scrolling
     const lenis = new Lenis();
     lenis.on("scroll", ScrollTrigger.update);
-    
+
     const raf = (time: number) => {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -109,19 +109,13 @@ export default function Home() {
               An aperture <br />
               into stillness
             </h1>
-            <p>
-              A constructed aperture into stillness. Here, the world outside
-              dissolves into a tranquil vista, inviting moments of reflection.
-              Built with care and attention to detail, this space is designed to
-              bring a sense of calm and quiet contemplation to your everyday.
-            </p>
           </div>
 
           <div className="col">
             <p>Observation Mode</p>
             <h1>
               Where distance <br />
-              collapses into presence.
+              Becomes a presence.
             </h1>
           </div>
         </div>
