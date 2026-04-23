@@ -5,7 +5,6 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import Lenis from "lenis";
 import { StarsBackground } from "@/components/animate-ui/components/backgrounds/stars";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -18,16 +17,6 @@ export default function Home() {
   const heroCopyRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    // Lenis smooth scrolling
-    const lenis = new Lenis();
-    lenis.on("scroll", ScrollTrigger.update);
-
-    const raf = (time: number) => {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    };
-    requestAnimationFrame(raf);
-
     // GSAP Animation
     const skyContainer = skyContainerRef.current;
     const windowContainer = windowContainerRef.current;
