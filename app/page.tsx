@@ -89,8 +89,8 @@ export default function Home() {
               blurStrength={10}
               containerClassName="about-reveal"
               textClassName="about-text"
-              start="top bottom-=230%"
-              wordAnimationEnd="top bottom-=280%"
+              start="top bottom-=220%"
+              wordAnimationEnd="top bottom-=270%"
             >
               At Macenza, we’re driven by ideas that make a difference. We
               specialize in creating smart, impactful solutions that help
