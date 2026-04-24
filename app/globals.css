@@ -204,6 +204,10 @@ section {
     --logoloop-logoHeight: 32px !important;
     --logoloop-gap: 50px !important;
   }
+
+  .about {
+    align-items: flex-start;
+  }
 }
 
 /* Lenis styles */

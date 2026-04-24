@@ -65,12 +65,18 @@ export default function Home() {
         });
 
         let aboutY;
-        if (progress <= 0.66) {
+        const isMobile = window.innerWidth <= 1000;
+        const startProgress = isMobile ? 0.45 : 0.66;
+        const endProgress = 1;
+        const finalY = isMobile ? -10 : 0; // Shifts the final position 10% higher on mobile
+
+        if (progress <= startProgress) {
           aboutY = 100;
-        } else if (progress >= 1) {
-          aboutY = 0;
+        } else if (progress >= endProgress) {
+          aboutY = finalY;
         } else {
-          aboutY = 100 * (1 - (progress - 0.66) / 0.34);
+          const p = (progress - startProgress) / (endProgress - startProgress);
+          aboutY = 100 + (finalY - 100) * p;
         }
         gsap.set(aboutRef.current, { yPercent: aboutY });
       },
