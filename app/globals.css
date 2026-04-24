@@ -190,6 +190,20 @@ section {
   .about h1 {
     font-size: 2rem;
   }
+
+  .about-text {
+    font-size: 1.34rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .about-content {
+    gap: 2rem;
+  }
+
+  .logoloop {
+    --logoloop-logoHeight: 32px !important;
+    --logoloop-gap: 50px !important;
+  }
 }
 
 /* Lenis styles */
