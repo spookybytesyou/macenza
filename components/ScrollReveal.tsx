@@ -52,49 +52,33 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     if (!el) return;
 
     const scroller = scrollContainerRef && scrollContainerRef.current ? scrollContainerRef.current : window;
+    const mm = gsap.matchMedia();
 
-    gsap.fromTo(
-      el,
-      { transformOrigin: '0% 50%', rotate: baseRotation },
-      {
-        ease: 'none',
-        rotate: 0,
-        scrollTrigger: {
-          trigger: el,
-          scroller,
-          start: start,
-          end: rotationEnd,
-          scrub: true
-        }
-      }
-    );
-
-    const wordElements = el.querySelectorAll('.word');
-
-    gsap.fromTo(
-      wordElements,
-      { opacity: baseOpacity, willChange: 'opacity' },
-      {
-        ease: 'none',
-        opacity: 1,
-        stagger: 0.05,
-        scrollTrigger: {
-          trigger: el,
-          scroller,
-          start: start,
-          end: wordAnimationEnd,
-          scrub: true
-        }
-      }
-    );
-
-    if (enableBlur) {
+    mm.add("(min-width: 1001px)", () => {
       gsap.fromTo(
-        wordElements,
-        { filter: `blur(${blurStrength}px)` },
+        el,
+        { transformOrigin: '0% 50%', rotate: baseRotation },
         {
           ease: 'none',
-          filter: 'blur(0px)',
+          rotate: 0,
+          scrollTrigger: {
+            trigger: el,
+            scroller,
+            start: start,
+            end: rotationEnd,
+            scrub: true
+          }
+        }
+      );
+
+      const wordElements = el.querySelectorAll('.word');
+
+      gsap.fromTo(
+        wordElements,
+        { opacity: baseOpacity, willChange: 'opacity' },
+        {
+          ease: 'none',
+          opacity: 1,
           stagger: 0.05,
           scrollTrigger: {
             trigger: el,
@@ -105,10 +89,29 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
           }
         }
       );
-    }
+
+      if (enableBlur) {
+        gsap.fromTo(
+          wordElements,
+          { filter: `blur(${blurStrength}px)` },
+          {
+            ease: 'none',
+            filter: 'blur(0px)',
+            stagger: 0.05,
+            scrollTrigger: {
+              trigger: el,
+              scroller,
+              start: start,
+              end: wordAnimationEnd,
+              scrub: true
+            }
+          }
+        );
+      }
+    });
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      mm.revert();
     };
   }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength, start]);
 
