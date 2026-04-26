@@ -74,7 +74,7 @@ const NavbarLogo = ({ isHidden = false }: { isHidden?: boolean }) => {
     });
 
     return () => mm.revert();
-  }, { scope: logoRef });
+  });
 
   return (
     <div ref={logoRef} className="navbar-logo-container">
