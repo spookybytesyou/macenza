@@ -65,6 +65,11 @@
   display: none;
 }
 
+.navbar-logo-wrapper {
+  display: flex;
+  align-items: center;
+}
+
 @media (max-width: 1000px) {
   .desktop-navbar {
     display: none;

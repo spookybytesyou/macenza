@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 // @ts-ignore
 import StaggeredMenu from './StaggeredMenu';
 import NavbarLogo from './NavbarLogo';
@@ -12,6 +12,8 @@ interface NavItem {
 }
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const menuItems: NavItem[] = [
     { label: 'About', link: '#about' },
     { label: 'Services', link: '#services' },
@@ -36,7 +38,9 @@ const Navbar = () => {
           ))}
         </div>
 
-        <NavbarLogo />
+        <div className="navbar-logo-wrapper">
+          <NavbarLogo isHidden={isMenuOpen} />
+        </div>
 
         <div className="nav-right">
           <a href={careerItem.link} className="nav-link">
@@ -51,7 +55,9 @@ const Navbar = () => {
           {/* Spacer to balance the menu on the right */}
           <div className="mobile-spacer"></div>
 
-          <NavbarLogo />
+          <div className="navbar-logo-wrapper">
+            <NavbarLogo isHidden={isMenuOpen} />
+          </div>
 
           <div className="mobile-menu-wrapper">
             <StaggeredMenuClient
@@ -60,6 +66,8 @@ const Navbar = () => {
               accentColor="#fff"
               isFixed={true}
               logoUrl="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              onMenuOpen={() => setIsMenuOpen(true)}
+              onMenuClose={() => setIsMenuOpen(false)}
             />
           </div>
         </div>

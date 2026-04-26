@@ -8,8 +8,18 @@ import './NavbarLogo.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const NavbarLogo = () => {
+const NavbarLogo = ({ isHidden = false }: { isHidden?: boolean }) => {
   const logoRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    if (!logoRef.current) return;
+    gsap.to(logoRef.current, {
+      autoAlpha: isHidden ? 0 : 1,
+      duration: 0.5,
+      ease: "power2.inOut",
+      overwrite: 'auto'
+    });
+  }, [isHidden]);
 
   useGSAP(() => {
     if (!logoRef.current) return;
