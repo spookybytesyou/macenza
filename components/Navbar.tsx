@@ -68,6 +68,11 @@ const Navbar = () => {
               logoUrl="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
               onMenuOpen={() => setIsMenuOpen(true)}
               onMenuClose={() => setIsMenuOpen(false)}
+              socialItems={[
+                { label: 'Instagram', link: 'https://www.instagram.com/macenza.ai/' },
+                { label: 'LinkedIn', link: 'https://in.linkedin.com/company/macenza' },
+                { label: 'Github', link: 'https://github.com/macenza' },
+              ]}
             />
           </div>
         </div>
