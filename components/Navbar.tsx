@@ -3,6 +3,7 @@
 import React from 'react';
 // @ts-ignore
 import StaggeredMenu from './StaggeredMenu';
+import NavbarLogo from './NavbarLogo';
 import './Navbar.css';
 
 interface NavItem {
@@ -34,6 +35,9 @@ const Navbar = () => {
             </a>
           ))}
         </div>
+
+        <NavbarLogo />
+
         <div className="nav-right">
           <a href={careerItem.link} className="nav-link">
             {careerItem.label}
@@ -43,13 +47,22 @@ const Navbar = () => {
 
       {/* Mobile Navigation - Using the provided UI Component */}
       <div className="mobile-navbar">
-        <StaggeredMenuClient 
-          items={[...menuItems, careerItem]}
-          colors={['#0f0f0f', '#1a1a1a', '#222']}
-          accentColor="#fff"
-          isFixed={true}
-          logoUrl="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" // Transparent pixel to hide default logo
-        />
+        <div className="mobile-header">
+          {/* Spacer to balance the menu on the right */}
+          <div className="mobile-spacer"></div>
+
+          <NavbarLogo />
+
+          <div className="mobile-menu-wrapper">
+            <StaggeredMenuClient
+              items={[...menuItems, careerItem]}
+              colors={['#0f0f0f', '#1a1a1a', '#222']}
+              accentColor="#fff"
+              isFixed={true}
+              logoUrl="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
