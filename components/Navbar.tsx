@@ -52,9 +52,6 @@ const Navbar = () => {
       {/* Mobile Navigation - Using the provided UI Component */}
       <div className="mobile-navbar">
         <div className="mobile-header">
-          {/* Spacer to balance the menu on the right */}
-          <div className="mobile-spacer"></div>
-
           <div className="navbar-logo-wrapper">
             <NavbarLogo isHidden={isMenuOpen} />
           </div>

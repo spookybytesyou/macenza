@@ -27,15 +27,24 @@ const NavbarLogo = ({ isHidden = false }: { isHidden?: boolean }) => {
     const mm = gsap.matchMedia();
 
     mm.add("(max-width: 1000px)", () => {
-      // Mobile: Shifted slightly upwards
-      gsap.fromTo(logoRef.current,
+      const logo = logoRef.current;
+      if (!logo) return;
+
+      // Calculate dynamic offset to center the logo regardless of screen width or padding
+      const centerX = window.innerWidth / 2;
+      const logoRect = logo.getBoundingClientRect();
+      // We use the initial left position to calculate the shift to center
+      const startX = centerX - logoRect.left - (logoRect.width / 2);
+
+      gsap.fromTo(logo,
         {
+          x: startX,
           y: "40vh",
           scale: 2.5,
           opacity: 1
         },
         {
-          x: -100,
+          x: 0,
           y: 10,
           scale: 1.5,
           opacity: 1,
