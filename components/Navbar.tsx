@@ -63,7 +63,7 @@ const Navbar = () => {
             <StaggeredMenuClient
               items={[...menuItems, careerItem]}
               colors={['#0f0f0f', '#1a1a1a', '#222']}
-              accentColor="#fff"
+              accentColor="#A57A2A"
               isFixed={true}
               logoUrl="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
               onMenuOpen={() => setIsMenuOpen(true)}
