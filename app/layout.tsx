@@ -1,10 +1,13 @@
+import React from "react";
 import type { Metadata } from "next";
-import { Playfair_Display, Geist } from "next/font/google";
+import { Playfair_Display, Geist, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import SmoothScroll from "@/components/SmoothScroll";
+import Navbar from "@/components/Navbar";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -27,11 +30,13 @@ export default function RootLayout({
       className={cn(
         "antialiased",
         playfair.variable,
+        inter.variable,
         "font-sans",
         geist.variable
       )}
     >
       <body className="font-playfair">
+        <Navbar />
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
