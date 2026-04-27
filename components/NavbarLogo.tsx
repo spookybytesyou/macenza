@@ -60,14 +60,24 @@ const NavbarLogo = ({ isHidden = false }: { isHidden?: boolean }) => {
     });
 
     mm.add("(min-width: 1001px)", () => {
+      const logo = logoRef.current;
+      if (!logo) return;
+
+      // Calculate dynamic offset to center the logo regardless of screen width or padding
+      const centerX = window.innerWidth / 2;
+      const logoRect = logo.getBoundingClientRect();
+      const startX = centerX - logoRect.left - (logoRect.width / 2);
+
       // Desktop: Original positioning
-      gsap.fromTo(logoRef.current,
+      gsap.fromTo(logo,
         {
+          x: startX,
           y: "40vh",
           scale: 2.5,
           opacity: 1
         },
         {
+          x: 0,
           y: 20,
           scale: 1.5,
           opacity: 1,
