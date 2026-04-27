@@ -28,7 +28,7 @@
   display: flex;
   gap: 3rem;
   flex: 1;
-  justify-content: center;
+  justify-content: flex-end;
   transform: translateY(16px);
 }
 
