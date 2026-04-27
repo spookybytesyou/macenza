@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 // @ts-ignore
 import StaggeredMenu from './StaggeredMenu';
 import NavbarLogo from './NavbarLogo';
+import { StaggerButton } from './ui/stagger-button';
 import './Navbar.css';
 
 interface NavItem {
@@ -32,9 +33,19 @@ const Navbar = () => {
       <nav className="desktop-navbar">
         <div className="nav-left">
           {menuItems.map((item) => (
-            <a key={item.label} href={item.link} className="nav-link">
-              {item.label}
-            </a>
+            <StaggerButton
+              key={item.label}
+              asChild
+              direction="up"
+              variant="ghost"
+              staggerDuration={0.7}
+              staggerDelay={0}
+              size={"lg"}
+              text={item.label}
+              className="nav-link !bg-transparent rounded-[12px] hover:!bg-white/10 hover:!text-white hover:!opacity-100 !px-2"
+            >
+              <a href={item.link} />
+            </StaggerButton>
           ))}
         </div>
 
@@ -43,9 +54,18 @@ const Navbar = () => {
         </div>
 
         <div className="nav-right">
-          <a href={careerItem.link} className="nav-link">
-            {careerItem.label}
-          </a>
+          <StaggerButton
+            asChild
+            direction="up"
+            variant="ghost"
+            staggerDuration={0.7}
+            staggerDelay={0}
+            size={"lg"}
+            text={careerItem.label}
+            className="nav-link !bg-transparent rounded-[12px] hover:!bg-white/10 hover:!text-white hover:!opacity-100 !px-2"
+          >
+            <a href={careerItem.link} />
+          </StaggerButton>
         </div>
       </nav>
 
