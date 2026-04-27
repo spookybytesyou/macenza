@@ -20,15 +20,14 @@
   display: flex;
   gap: 3rem;
   flex: 1;
-  transform: translateY(15px);
+  justify-content: center;
 }
 
 .nav-right {
   display: flex;
   gap: 3rem;
   flex: 1;
-  justify-content: flex-end;
-  transform: translateY(15px);
+  justify-content: center;
 }
 
 .nav-link {
@@ -56,6 +55,8 @@
 .navbar-logo-wrapper {
   display: flex;
   align-items: center;
+  flex: 1;
+  justify-content: center;
 }
 
 @media (max-width: 1000px) {
