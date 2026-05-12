@@ -28,7 +28,7 @@ const Navbar = () => {
   const StaggeredMenuClient = StaggeredMenu as any;
 
   return (
-    <div className="navbar-container">
+    <div className={`navbar-container ${isMenuOpen ? 'menu-open' : ''}`}>
       {/* Desktop Navigation */}
       <nav className="desktop-navbar">
         <div className="nav-left">

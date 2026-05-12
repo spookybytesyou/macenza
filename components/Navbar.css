@@ -11,6 +11,11 @@
   pointer-events: none;
 }
 
+.navbar-container.menu-open {
+  mix-blend-mode: normal;
+  pointer-events: auto;
+}
+
 .desktop-navbar {
   display: flex;
   justify-content: space-between;

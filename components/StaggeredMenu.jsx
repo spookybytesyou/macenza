@@ -215,6 +215,7 @@ export const StaggeredMenu = ({
       ease: 'power3.in',
       overwrite: 'auto',
       onComplete: () => {
+        onMenuClose?.();
         const itemEls = Array.from(panel.querySelectorAll('.sm-panel-itemLabel'));
         if (itemEls.length) {
           gsap.set(itemEls, { yPercent: 140, rotate: 10 });
@@ -230,7 +231,7 @@ export const StaggeredMenu = ({
         busyRef.current = false;
       }
     });
-  }, [position]);
+  }, [position, onMenuClose]);
 
   const animateIcon = useCallback(opening => {
     const icon = iconRef.current;
@@ -310,7 +311,6 @@ export const StaggeredMenu = ({
       onMenuOpen?.();
       playOpen();
     } else {
-      onMenuClose?.();
       playClose();
     }
     animateIcon(target);
@@ -322,7 +322,6 @@ export const StaggeredMenu = ({
     if (openRef.current) {
       openRef.current = false;
       setOpen(false);
-      onMenuClose?.();
       playClose();
       animateIcon(false);
       animateColor(false);
