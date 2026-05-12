@@ -3,10 +3,12 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 1000;
   padding: 1.5rem 4rem;
   font-family: var(--font-inter), sans-serif;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  mix-blend-mode: difference;
+  pointer-events: none;
 }
 
 .desktop-navbar {
@@ -14,6 +16,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  pointer-events: auto;
 }
 
 .nav-left {
@@ -33,7 +36,7 @@
 }
 
 .nav-link {
-  color: var(--light, #fff);
+  color: #fff;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 600;
@@ -82,7 +85,7 @@
     align-items: center;
     padding: 1.5rem 2rem;
     width: 100%;
-    pointer-events: none;
+    pointer-events: auto;
   }
 
   .mobile-spacer,
