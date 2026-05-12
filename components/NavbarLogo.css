@@ -7,6 +7,9 @@
   min-width: 150px;
   z-index: 110;
   pointer-events: auto;
+  /* Prevent rendering artifacts during scroll */
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .navbar-logo-svg {
@@ -14,6 +17,8 @@
   width: auto;
   display: block;
   object-fit: contain;
+  /* Force logo to pure white for perfect inversion contrast */
+  filter: brightness(0) invert(1);
 }
 
 @media (max-width: 1000px) {
