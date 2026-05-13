@@ -99,7 +99,7 @@ export default function Hero() {
             containerClassName="about-reveal"
             textClassName="about-text"
             start="top bottom-=220%"
-            wordAnimationEnd="top bottom-=270%"
+            wordAnimationEnd="top bottom-=280%"
           >
             At Macenza, we’re driven by ideas that make a difference. We
             specialize in creating smart, impactful solutions that help
