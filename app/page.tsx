@@ -6,9 +6,10 @@ import TestimonialsWithCarousel from "@/components/testimonials-with-carousel";
 export default function Home() {
   return (
     <div className="main-wrapper">
-      <Hero />
 
+      <Hero />
       <TestimonialsWithCarousel />
+
     </div>
   );
 }

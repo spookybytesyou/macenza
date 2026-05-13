@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import { StarsBackground } from "@/components/animate-ui/components/backgrounds/stars";
 import ScrollReveal from "@/components/ScrollReveal";
 import LogoLoop from "@/components/LogoLoop";
+import "./Hero.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
