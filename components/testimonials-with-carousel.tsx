@@ -40,6 +40,7 @@ export default function TestimonialsCarousel() {
 
   return (
     <section className='dark relative w-full min-h-screen bg-[#0f0f0f] flex flex-col items-center justify-center px-4'>
+      <div className='testimonials-top-fade'></div>
       <div className='relative z-10 flex flex-col items-center gap-12 w-full max-w-6xl'>
         <div className='flex flex-col items-center gap-4 text-center'>
           <h2 className='text-5xl md:text-7xl font-bold text-white tracking-tight leading-tight'>

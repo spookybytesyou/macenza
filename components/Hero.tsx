@@ -36,8 +36,10 @@ export default function Hero() {
     const skyContainerHeight = skyRef.current.offsetHeight;
     const viewportHeight = window.innerHeight;
     const skyMoveDistance = skyContainerHeight - viewportHeight;
+    const fadeOverlay = container.current?.querySelector(".hero-bottom-fade");
 
     gsap.set(aboutRef.current, { yPercent: 100 });
+    gsap.set(fadeOverlay, { opacity: 0 });
 
     ScrollTrigger.create({
       trigger: container.current,
@@ -48,6 +50,10 @@ export default function Hero() {
       scrub: 1,
       onUpdate: (self) => {
         const progress = self.progress;
+
+        // Only show the fade when we're past 70% of the hero animation
+        const fadeOpacity = progress > 0.7 ? (progress - 0.7) / 0.3 : 0;
+        gsap.set(fadeOverlay, { opacity: fadeOpacity });
 
         let windowScale;
         if (progress <= 0.6) {
@@ -132,6 +138,8 @@ export default function Hero() {
           </h1>
         </div>
       </div>
+
+      <div className="hero-bottom-fade"></div>
     </section>
   );
 }
