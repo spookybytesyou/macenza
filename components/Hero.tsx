@@ -39,7 +39,7 @@ export default function Hero() {
     const fadeOverlay = container.current?.querySelector(".hero-bottom-fade");
 
     gsap.set(aboutRef.current, { yPercent: 100 });
-    gsap.set(fadeOverlay, { opacity: 0 });
+    if (fadeOverlay) gsap.set(fadeOverlay, { opacity: 0 });
 
     ScrollTrigger.create({
       trigger: container.current,
@@ -53,7 +53,7 @@ export default function Hero() {
 
         // Only show the fade when we're past 70% of the hero animation
         const fadeOpacity = progress > 0.7 ? (progress - 0.7) / 0.3 : 0;
-        gsap.set(fadeOverlay, { opacity: fadeOpacity });
+        if (fadeOverlay) gsap.set(fadeOverlay, { opacity: fadeOpacity });
 
         let windowScale;
         if (progress <= 0.6) {
