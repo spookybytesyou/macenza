@@ -41,12 +41,6 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: var(--font-playfair), serif;
   background-color: var(--light);
@@ -203,6 +197,9 @@ html.lenis {
 
 @layer base {
   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     @apply border-border outline-ring/50;
   }
 
