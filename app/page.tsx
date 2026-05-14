@@ -1,6 +1,7 @@
 "use client";
 
 import Hero from "@/components/Hero";
+import Services from "@/components/Services";
 import TestimonialsWithCarousel from "@/components/testimonials-with-carousel";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
 
       <Hero />
       <TestimonialsWithCarousel />
+      <Services />
 
     </div>
   );

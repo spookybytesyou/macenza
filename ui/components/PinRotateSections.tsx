@@ -5,7 +5,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { cn } from '@/lib/utils';
-import { useLenisScroll, getScroller } from '@/contexts/LenisContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -74,12 +73,10 @@ interface PinRotateSectionsProps {
 
 const PinRotateSections: React.FC<PinRotateSectionsProps> = ({ children, className }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const lenisContext = useLenisScroll();
-  const scroller = getScroller(lenisContext);
 
   useGSAP(
     () => {
-      if (!lenisContext.isReady || !containerRef.current) return;
+      if (!containerRef.current) return;
 
       const sections = Array.from(
         containerRef.current.querySelectorAll<HTMLElement>('[data-pin-rotate-section]')
@@ -98,7 +95,6 @@ const PinRotateSections: React.FC<PinRotateSectionsProps> = ({ children, classNa
               end: 'top top',
               pin: true,
               pinSpacing: false,
-              scroller: scroller || undefined,
             })
           );
 
@@ -107,7 +103,6 @@ const PinRotateSections: React.FC<PinRotateSectionsProps> = ({ children, classNa
               trigger: sections[index + 1],
               start: 'top bottom',
               end: 'top top',
-              scroller: scroller || undefined,
               onUpdate: (self) => {
                 const progress = self.progress;
                 const overlay = section.querySelector('.pin-rotate-overlay');
@@ -127,7 +122,7 @@ const PinRotateSections: React.FC<PinRotateSectionsProps> = ({ children, classNa
 
       return () => triggers.forEach((t) => t.kill());
     },
-    { scope: containerRef, dependencies: [lenisContext.isReady, scroller] }
+    { scope: containerRef }
   );
 
   return (
