@@ -312,7 +312,7 @@ export default function TestimonialCarousel({
           <TestimonialCardContent>
             {data.map((testimonial, index) => (
               <TestimonialCardItem key={index} className='basis-full'>
-                <Card className='bg-background border border-white/40 h-full shadow-2xl'>
+                <Card className='bg-[#0f0f0f]/50 backdrop-blur-md border border-white/40 h-full shadow-2xl'>
                   <CardContent className='p-4 sm:p-6 md:p-8 h-full flex items-center'>
                     <div className='flex flex-col sm:flex-row items-start gap-4 sm:gap-6 w-full'>
                       <AnimatedAvatarBorder

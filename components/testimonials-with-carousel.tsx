@@ -39,8 +39,13 @@ export default function TestimonialsCarousel() {
   const titleWords = title.split(' ');
 
   return (
-    <section className='dark relative w-full min-h-screen bg-[#0f0f0f] flex flex-col items-center justify-center px-4'>
+    <section className='dark relative w-full min-h-screen bg-[#0f0f0f] flex flex-col items-center justify-center px-4 overflow-hidden'>
       <div className='testimonials-top-fade'></div>
+
+      {/* Decorative Background Blobs */}
+      <div className="from-red-500/20 to-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 h-[500px] w-[500px] rounded-full bg-gradient-to-b blur-3xl opacity-50" />
+      <div className="from-rose-600/15 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 h-[400px] w-[400px] rounded-full bg-gradient-to-t to-transparent opacity-70 blur-[100px]" />
+
       <div className='relative z-10 flex flex-col items-center gap-12 w-full max-w-6xl'>
         <div className='flex flex-col items-center gap-4 text-center'>
           <h2 className='text-5xl md:text-7xl font-bold text-white tracking-tight leading-tight'>
@@ -61,7 +66,7 @@ export default function TestimonialsCarousel() {
               </motion.span>
             ))}
           </h2>
-          
+
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
