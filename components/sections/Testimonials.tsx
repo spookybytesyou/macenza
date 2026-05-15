@@ -34,7 +34,7 @@ const testimonials = [
   },
 ];
 
-export default function TestimonialsCarousel() {
+export default function Testimonials() {
   const title = 'Built for teams who ship fast';
   const titleWords = title.split(' ');
 

@@ -1,7 +1,7 @@
 "use client";
 
 import Hero from "@/components/sections/Hero";
-import TestimonialsWithCarousel from "@/components/sections/testimonials-with-carousel";
+import Testimonials from "@/components/sections/Testimonials";
 import Services from "@/components/sections/Services";
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
 
       <Hero />
       {/* About Section resides under Hero section */}
-      <TestimonialsWithCarousel />
+      <Testimonials />
       <Services />
 
     </div>
