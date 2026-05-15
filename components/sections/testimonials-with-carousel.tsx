@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
-import TestimonialCarousel from '@/components/ui/testimonial-carousel';
+import TestimonialCarousel from '@/components/ui/testimonial/testimonial-carousel';
 
 const testimonials = [
   {

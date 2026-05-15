@@ -3,7 +3,7 @@ import PinRotateSections, {
     PinRotateIntro,
     PinRotateSection,
     PinRotateOutro,
-} from '../ui/components/PinRotateSections';
+} from '@/components/ui/PinRotateSections';
 
 const MusicSvg = () => (
     <svg className="inline h-[5vw] w-[5vw] md:h-[5vw] md:w-[5vw]" viewBox="0 0 24 24" fill="none">

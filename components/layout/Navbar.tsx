@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 // @ts-ignore
 import StaggeredMenu from './StaggeredMenu';
 import NavbarLogo from './NavbarLogo';
-import { StaggerButton } from './ui/stagger-button';
+import { StaggerButton } from '@/components/ui/stagger-button';
 import './Navbar.css';
 
 interface NavItem {

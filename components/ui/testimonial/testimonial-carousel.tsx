@@ -5,9 +5,9 @@ import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from 'embla-carousel-react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/testimonial/avatar';
+import { Card, CardContent } from '@/components/ui/testimonial/card';
+import { Button } from '@/components/ui/testimonial/button';
 import { cn } from '@/lib/utils';
 
 type TestimonialCardApi = UseEmblaCarouselType[1];

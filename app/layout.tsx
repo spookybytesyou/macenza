@@ -3,8 +3,9 @@ import type { Metadata } from "next";
 import { Playfair_Display, Geist, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import SmoothScroll from "@/components/SmoothScroll";
-import Navbar from "@/components/Navbar";
+
+import SmoothScroll from "@/components/layout/SmoothScroll";
+import Navbar from "@/components/layout/Navbar";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
