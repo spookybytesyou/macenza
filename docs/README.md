@@ -20,5 +20,5 @@ Components References:
 
 TODO:
 
-Add a bit of top margin to testimonials after animation is set
+Add a bit of top margin to testimonials after animation is set (theres dead code in case you forget)
 Remove placeholders images access from next.config.ts
