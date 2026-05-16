@@ -5,14 +5,21 @@ import PinRotateSections, {
     PinRotateOutro,
 } from '@/components/ui/PinRotateSections';
 
+
 const Services = () => (
     <PinRotateSections>
         <PinRotateIntro>
-            <h2 className="flex flex-wrap justify-center items-center text-[4vw] md:text-[4vw]">
-                Best <span className="ml-[0.8vw] flex items-center font-[100] text-bisque">Games </span> To Try.
-            </h2>
-            <p className="mt-4 max-w-[800px] text-lg leading-relaxed opacity-80">
-                Here are a few of the most memorable and entertaining games I have enjoyed over the years.
+            <p
+                className="text-white font-calendas italic"
+                style={{ fontSize: 'clamp(3.5rem, 12vw, 10rem)', lineHeight: '1' }}
+            >
+                Our Services
+            </p>
+            <p
+                className="mt-4 mb-16 text-white/80 max-w-[90%] md:max-w-[600px] leading-relaxed"
+                style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1.5rem)' }}
+            >
+                Complete solutions, all in one place
             </p>
         </PinRotateIntro>
 

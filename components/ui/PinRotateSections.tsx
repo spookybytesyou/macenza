@@ -17,7 +17,7 @@ export const PinRotateIntro: React.FC<PinRotateIntroProps> = ({ className, child
   <section
     data-pin-rotate-intro
     className={cn(
-      'flex min-h-screen flex-col items-center justify-center bg-[#1a1a1a] px-[8vw] py-0 text-center text-white',
+      'flex min-h-screen flex-col items-center justify-center bg-[##0f0f0f] px-[8vw] py-0 text-center text-white',
       className
     )}
   >
