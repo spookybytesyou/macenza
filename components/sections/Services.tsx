@@ -5,35 +5,11 @@ import PinRotateSections, {
     PinRotateOutro,
 } from '@/components/ui/PinRotateSections';
 
-const MusicSvg = () => (
-    <svg className="inline h-[5vw] w-[5vw] md:h-[5vw] md:w-[5vw]" viewBox="0 0 24 24" fill="none">
-        <path
-            d="M22 12H18L15 21L9 3L6 12H2"
-            stroke="currentColor"
-            strokeWidth="0.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        />
-    </svg>
-);
-
-const HeartSvg = () => (
-    <svg className="inline h-[5vw] w-[5vw] md:h-[5vw] md:w-[5vw]" viewBox="0 0 24 24" fill="none">
-        <path
-            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-            stroke="currentColor"
-            strokeWidth="0.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        />
-    </svg>
-);
-
 const Services = () => (
     <PinRotateSections>
         <PinRotateIntro>
             <h2 className="flex flex-wrap justify-center items-center text-[4vw] md:text-[4vw]">
-                Best <span className="ml-[0.8vw] flex items-center font-[100] text-bisque">Games {<MusicSvg />}</span> To Try.
+                Best <span className="ml-[0.8vw] flex items-center font-[100] text-bisque">Games </span> To Try.
             </h2>
             <p className="mt-4 max-w-[800px] text-lg leading-relaxed opacity-80">
                 Here are a few of the most memorable and entertaining games I have enjoyed over the years.
@@ -147,7 +123,7 @@ const Services = () => (
 
         <PinRotateOutro>
             <h2 className="flex flex-wrap justify-center items-center text-[4vw] md:text-[4vw]">
-                Happy <span className="ml-[0.8vw] flex items-center font-[100] text-bisque">Gaming {<HeartSvg />}</span> Out There.
+                Happy <span className="ml-[0.8vw] flex items-center font-[100] text-bisque">Gaming </span> Out There.
             </h2>
             <p className="mt-4 max-w-[800px] text-base leading-relaxed opacity-80 md:text-lg">
                 These games have shaped my gaming journey and left a lasting impression.

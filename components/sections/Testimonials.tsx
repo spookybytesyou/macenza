@@ -39,7 +39,9 @@ export default function Testimonials() {
   const titleWords = title.split(' ');
 
   return (
-    <section className='dark relative w-full min-h-screen bg-[#0f0f0f] flex flex-col items-center justify-center px-4 overflow-hidden'>
+    // Revert to older version with min-height: 100vh
+    // <section className='dark relative w-full min-h-screen bg-[#0f0f0f] flex flex-col items-center justify-center px-4 overflow-hidden'>
+    <section className='dark relative w-full min-h-[120vh] bg-[#0f0f0f] flex flex-col items-center justify-center px-4 overflow-hidden'>
       <div className='testimonials-top-fade'></div>
 
       {/* Decorative Background Blobs */}
